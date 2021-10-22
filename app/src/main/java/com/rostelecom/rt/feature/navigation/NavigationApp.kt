@@ -8,9 +8,7 @@ import androidx.navigation.compose.composable
 import com.rostelecom.rt.feature.screens.WelcomeScreen
 
 @Composable
-fun NavigationAppRT(navHost: NavHostController) {
-    NavHost(navController = navHost, startDestination = NavigationRoute.Welcome.route){
-        composable(NavigationRoute.Welcome.route){ WelcomeScreen()}
-    }
+fun NavigationAppRT() {
+
 
 }
