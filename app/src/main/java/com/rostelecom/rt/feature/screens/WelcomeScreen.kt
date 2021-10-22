@@ -1,8 +1,6 @@
 package com.rostelecom.rt.feature.screens
 
 import androidx.compose.animation.*
-import androidx.compose.animation.core.LinearOutSlowInEasing
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,9 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.rostelecom.rt.R
+import com.rostelecom.rt.ui.theme.Gray200
+import com.rostelecom.rt.ui.theme.Gray500
+import com.rostelecom.rt.ui.theme.Purple500
+import com.rostelecom.rt.ui.widgets.ButtonGo
+import com.rostelecom.rt.ui.widgets.EditText
 
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -37,7 +41,7 @@ fun WelcomeScreen() {
             Image(painterResource(R.drawable.background_welcome), contentDescription = null,
                 Modifier
                     .fillMaxHeight()
-                    .alpha(0.5f), contentScale = ContentScale.FillHeight)
+                    .alpha(0.7f), contentScale = ContentScale.Crop)
             Image(painterResource(R.drawable.ic_logo), "LogoApp" ,
                 Modifier.fillMaxSize(0.6f), )
         }
@@ -47,28 +51,58 @@ fun WelcomeScreen() {
             exit = shrinkVertically(),
             modifier = Modifier.weight(2f)
         ){
-
+            SignInOrUp()
         }
     }
 }
 
 @Composable
 fun SignInOrUp() {
+    var isSign by remember { mutableStateOf(true) }
     Column(modifier = Modifier.fillMaxSize()){
-        Row(Modifier.fillMaxWidth()) {
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .background(Gray200)) {
             TextButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+
+                },
                 Modifier.weight(1f)
             ) {
-
+                Text(stringResource(R.string.sign_in) ,
+                    style = MaterialTheme.typography.subtitle1,
+                    modifier = Modifier.padding(8.dp),
+                    fontWeight = FontWeight.Bold,
+                    color = if(isSign) Purple500 else Gray500
+                )
             }
             TextButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+
+                          },
                 Modifier.weight(1f)
             ) {
-
+                Text(stringResource(R.string.sign_up),
+                    style = MaterialTheme.typography.subtitle1 ,
+                    modifier = Modifier.padding(8.dp),
+                    fontWeight = FontWeight.Bold,
+                    color = if(!isSign) Purple500 else Gray500
+                )
             }
         }
+        if (isSign) SignIn()
+    }
+}
+
+@Composable
+fun SignIn() {
+    Column(Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        EditText(R.drawable.ic_email, R.string.email)
+        EditText(R.drawable.ic_lock , R.string.password)
+        ButtonGo(R.drawable.ic_run , R.string.come_in)
     }
 }
 

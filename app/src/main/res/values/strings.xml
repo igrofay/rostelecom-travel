@@ -2,4 +2,7 @@
     <string name="app_name">RT</string>
     <string name="sign_up">Регистрация</string>
     <string name="sign_in">Вход</string>
+    <string name="email">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="come_in">Войти</string>
 </resources>
