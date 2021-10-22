@@ -8,6 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.rostelecom.rt.feature.navigation.NavigationAppRT
 import com.rostelecom.rt.feature.screens.MapScreen
 import com.rostelecom.rt.feature.screens.WelcomeScreen
 import com.rostelecom.rt.ui.theme.RTTheme
@@ -19,7 +21,8 @@ class MainActivity : ComponentActivity() {
             RTTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    MapScreen()
+                    val navHost = rememberNavController()
+                    NavigationAppRT(navHost)
                 }
             }
         }

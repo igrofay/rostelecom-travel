@@ -1,5 +1,7 @@
 package com.rostelecom.rt.ui.widgets
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -18,7 +20,7 @@ import com.rostelecom.rt.ui.theme.Shapes
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ButtonGo(iconResource: Int, stringResourceButton: Int ) {
+fun ButtonGo(@DrawableRes iconResource: Int,@StringRes stringResourceButton: Int ) {
     var click by remember { mutableStateOf(false) }
     Surface(
         onClick = { click=! click},

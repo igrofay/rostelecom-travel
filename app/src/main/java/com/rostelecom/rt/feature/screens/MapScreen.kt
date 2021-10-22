@@ -25,8 +25,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun MapScreen() {
     val mapView = rememberMapViewWithLifeCycle()
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
