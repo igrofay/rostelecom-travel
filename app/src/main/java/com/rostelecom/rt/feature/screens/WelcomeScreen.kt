@@ -21,6 +21,7 @@ import com.rostelecom.rt.ui.theme.Gray500
 import com.rostelecom.rt.ui.theme.Purple500
 import com.rostelecom.rt.ui.widgets.ButtonGo
 import com.rostelecom.rt.ui.widgets.EditText
+import com.rostelecom.rt.ui.widgets.EditTextPassword
 
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -47,7 +48,7 @@ fun WelcomeScreen() {
         }
         AnimatedVisibility(
             visible = visible,
-            enter = slideInVertically(),
+            enter = expandVertically(),
             exit = shrinkVertically(),
             modifier = Modifier.weight(2f)
         ){
@@ -101,7 +102,7 @@ fun SignIn() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         EditText(R.drawable.ic_email, R.string.email)
-        EditText(R.drawable.ic_lock , R.string.password)
+        EditTextPassword(R.drawable.ic_lock , R.string.password)
         ButtonGo(R.drawable.ic_run , R.string.come_in)
     }
 }
