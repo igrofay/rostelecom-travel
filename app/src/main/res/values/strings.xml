@@ -5,4 +5,8 @@
     <string name="email">Почта</string>
     <string name="password">Пароль</string>
     <string name="come_in">Войти</string>
+    <string name="profile">Профиль</string>
+    <string name="chat">Чат</string>
+    <string name="map">Карта</string>
+
 </resources>
