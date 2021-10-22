@@ -2,6 +2,7 @@ package com.rostelecom.rt.feature.screens
 
 import android.os.Bundle
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -11,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -25,7 +27,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun MapScreen() {
     val mapView = rememberMapViewWithLifeCycle()
-    Column(
+
+
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
