@@ -16,4 +16,7 @@
     <string name="to_where">Куда ?</string>
     <string name="transport">Транспорт</string>
     <string name="budget">Бюджет</string>
+    <string name="start_travel">Начало:</string>
+    <string name="end_travel">Конец:</string>
+    <string name="people">Люди</string>
 </resources>

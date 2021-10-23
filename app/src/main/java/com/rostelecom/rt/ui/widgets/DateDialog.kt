@@ -7,18 +7,21 @@ import com.vanpra.composematerialdialogs.rememberMaterialDialogState
 import java.time.LocalDate
 
 @Composable
-fun DateDialog(inputDate: (date :LocalDate)->Unit) {
+fun DateDialog(inputDate: (date :LocalDate)->Unit , callback: ()-> Unit) {
     val dialogState = rememberMaterialDialogState()
+
     MaterialDialog(
         dialogState = dialogState,
         buttons = {
-            positiveButton("Ok")
-            negativeButton("Cancel")
-        }
+            positiveButton("Сохранить", onClick = callback)
+            negativeButton("Закрыть", onClick = callback)
+        },
+        onCloseRequest = {  }
     ) {
         datepicker { date ->
             inputDate(date)
         }
     }
     dialogState.show()
+
 }

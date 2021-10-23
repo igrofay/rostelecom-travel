@@ -30,7 +30,7 @@ fun MapRoutesScreen() {
             exit=  fadeOut()
             ) {
                 FloatingActionButton(onClick = {
-                    navMap.navigate(NavigationRoute.Main.MapRoutes.SettingRoute.route)
+                    navMap.navigate(NavigationRoute.Main.MapRoutes.CreateRoute.route)
                      }) {
                     Icon(Icons.Default.Add, contentDescription = null )
                 }
@@ -42,9 +42,9 @@ fun MapRoutesScreen() {
             composable(NavigationRoute.Main.MapRoutes.ListRoutesMap.route){
                 visible = true
                 ListRoutesMapScreen() }
-            composable(NavigationRoute.Main.MapRoutes.SettingRoute.route){
+            composable(NavigationRoute.Main.MapRoutes.CreateRoute.route){
                 visible = false
-                SettingRouteScreen()
+                CreateRouteScreen()
             }
             composable(NavigationRoute.Main.MapRoutes.Map.route){
                 MapScreen()
