@@ -2,5 +2,5 @@ package com.rostelecom.rt.data
 
 data class City(
     val id: Int, val name : String ,
-    val urlString: String
+    val imagePth :  String
     )
