@@ -27,9 +27,9 @@ import com.rostelecom.rt.ui.theme.WhileOrBlack
 
 @Composable
 fun EditText(@DrawableRes iconResource: Int ,@StringRes stringResourceLabel: Int , typeInput : KeyboardType,
-             input : String , newInput : (value : String) -> Unit ) {
+             input : String , newInput : (value : String) -> Unit, modifier: Modifier = Modifier ) {
 
-    OutlinedTextField( modifier = Modifier.fillMaxWidth(),
+    OutlinedTextField( modifier = modifier.fillMaxWidth(),
         value = input,
         onValueChange = newInput,
         label = { Text(stringResource(stringResourceLabel)) },

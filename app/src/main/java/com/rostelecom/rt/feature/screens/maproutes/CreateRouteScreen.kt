@@ -35,7 +35,7 @@ fun CreateRouteScreen() {
         item { AtoB(startRoute, endRoute , { startRoute = it } , { endRoute = it} ) }
         item { DropDownSelectCheckBox(R.string.transport,
             stringIsState = hashMapTransport ) }
-        item { EditText( R.drawable.ic_money , R.string.budget, KeyboardType.Number , budget , newInput = {budget = it} ) }
+        item { EditText( R.drawable.ic_money , R.string.budget, KeyboardType.Number , budget , newInput = {budget = it}, Modifier.padding(vertical = 20.dp) ) }
         item { if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Card(Modifier.fillMaxWidth()){
                 Column(

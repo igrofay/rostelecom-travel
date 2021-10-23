@@ -81,4 +81,9 @@ dependencies {
     //Dialog Date
     implementation "io.github.vanpra.compose-material-dialogs:datetime:0.6.1"
 
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+
 }
