@@ -66,8 +66,8 @@ fun SignIn() {
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        EditText(R.drawable.ic_email, R.string.email)
-        EditTextPassword(R.drawable.ic_lock , R.string.password)
-        ButtonGo(R.drawable.ic_run , R.string.come_in)
+        //EditText(R.drawable.ic_email, R.string.email)
+        //EditTextPassword(R.drawable.ic_lock , R.string.password)
+       // ButtonGo(R.drawable.ic_run , R.string.come_in)
     }
 }

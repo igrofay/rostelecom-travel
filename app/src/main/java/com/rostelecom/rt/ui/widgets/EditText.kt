@@ -1,11 +1,14 @@
 package com.rostelecom.rt.ui.widgets
 
 
+import android.icu.lang.UCharacter
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
@@ -13,18 +16,25 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
+import com.rostelecom.rt.ui.theme.BlackOrWhile
 import com.rostelecom.rt.ui.theme.WhileOrBlack
 
 @Composable
-fun EditText(@DrawableRes iconResource: Int ,@StringRes stringResourceLabel: Int ) {
-    var input by remember { mutableStateOf("") }
-    OutlinedTextField(
+fun EditText(@DrawableRes iconResource: Int ,@StringRes stringResourceLabel: Int , typeInput : KeyboardType,
+             input : String , newInput : (value : String) -> Unit ) {
+
+    OutlinedTextField( modifier = Modifier.fillMaxWidth(),
         value = input,
-        onValueChange = { input = it },
+        onValueChange = newInput,
         label = { Text(stringResource(stringResourceLabel)) },
-        leadingIcon = { Icon(painterResource(iconResource), contentDescription = null)}
+        leadingIcon = { Icon(painterResource(iconResource), contentDescription = null)},
+        singleLine = true , keyboardOptions = KeyboardOptions(keyboardType = typeInput)
     )
 }
 
@@ -40,12 +50,15 @@ fun EditTextPassword(@DrawableRes iconResource: Int ,@StringRes stringResourceLa
 }
 
 @Composable
-fun EditTextBasic(text: String, hint: String, onValNew: (new: String) -> Unit){
+fun EditTextBasic(text: String, @StringRes hint: Int, onValNew: (new: String) -> Unit){
     Box {
-        Text(hint , style = MaterialTheme.typography.subtitle2)
+        if(text.isEmpty()) Text(stringResource(hint) , fontSize = MaterialTheme.typography.h6.fontSize)
         BasicTextField(value = text, onValueChange = onValNew ,
-            textStyle = MaterialTheme.typography.subtitle2 ,
-            modifier = Modifier.background( if(text.isEmpty())  Color.Transparent else MaterialTheme.colors.WhileOrBlack ))
+            textStyle = TextStyle(
+                fontSize = MaterialTheme.typography.h6.fontSize,
+                color = MaterialTheme.colors.BlackOrWhile
+            ), singleLine = true  , cursorBrush = SolidColor(MaterialTheme.colors.BlackOrWhile)
+        )
     }
 
 }

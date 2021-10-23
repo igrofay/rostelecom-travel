@@ -12,4 +12,8 @@
     <string name="where_going">Куда едем?</string>
     <string name="user">Пользователь</string>
     <string name="places">Места</string>
+    <string name="is_from">Откуда ?</string>
+    <string name="to_where">Куда ?</string>
+    <string name="transport">Транспорт</string>
+    <string name="budget">Бюджет</string>
 </resources>

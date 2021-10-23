@@ -28,6 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.rostelecom.rt.R
 import com.rostelecom.rt.ui.theme.*
@@ -91,7 +92,8 @@ fun ButtonPlaces(labelText: String, urlImage: String){
                     , contentScale = ContentScale.Crop)
             Box(Modifier.fillMaxSize().alpha(0.7f).background(Color.Black))
             Text(labelText, Modifier.align(Alignment.Center), textAlign = TextAlign.Center ,
-                style = MaterialTheme.typography.h4, fontWeight = FontWeight.W700, fontFamily = FontFamily.SansSerif, color = Color.White)
+                style = MaterialTheme.typography.h4, fontWeight = FontWeight.W700,
+                fontFamily = FontFamily.SansSerif, color = Color.White,  overflow = TextOverflow.Ellipsis)
 
         }
     }
