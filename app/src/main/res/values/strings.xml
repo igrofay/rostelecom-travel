@@ -9,4 +9,6 @@
     <string name="chat">Чат</string>
     <string name="map">Карта</string>
     <string name="where_going">Куда едем?</string>
+    <string name="user">Пользователь</string>
+
 </resources>

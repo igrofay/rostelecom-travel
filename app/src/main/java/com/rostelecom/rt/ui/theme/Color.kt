@@ -24,3 +24,8 @@ val Colors.BlackOrWhile: Color
 
 val Colors.Gray: Color
     get() = if (isLight) Gray500 else Gray700
+val Colors.Purple: Color
+    get() = if(isLight) Purple700 else Purple500
+
+val Colors.Teal: Color
+    get() = if(isLight) Teal700 else Teal500
