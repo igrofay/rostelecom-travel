@@ -1,10 +1,13 @@
 package com.rostelecom.rt.module
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import androidx.annotation.DrawableRes
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.libraries.maps.CameraUpdateFactory
 import com.google.android.libraries.maps.GoogleMap
@@ -13,6 +16,8 @@ import com.rostelecom.rt.R
 import com.rostelecom.rt.feature.app.App
 
 class WorkMaps(var googleMap: GoogleMap) {
+
+    var gpsTracker = GPSTracker(App.appContext)
 
     init {
         startLogic()
@@ -26,13 +31,21 @@ class WorkMaps(var googleMap: GoogleMap) {
             isCompassEnabled = false
         }
 
+
+
         val pos = LatLng(0.0, 0.0)
         googleMap.addMarker(MarkerOptions().position(pos))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+        moveCamera(LatLng(gpsTracker.getLatitude(), gpsTracker.getLongitude()))
 
         addPolyline()
 
     }
+
+    private fun moveCamera(latLng: LatLng) {
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
+    }
+
+
 
     private fun addPolyline() {
         val polylineOptions = PolylineOptions()
@@ -82,5 +95,7 @@ class WorkMaps(var googleMap: GoogleMap) {
         vectorDrawable.draw(canvas)
         return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
+
+
 
 }
