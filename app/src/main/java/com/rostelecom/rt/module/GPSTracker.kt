@@ -33,7 +33,7 @@ class GPSTracker(private val mContext: Context) : Service(), LocationListener {
     private var bearing = 0.0
 
     // Declaring a Location Manager
-    protected var locationManager: LocationManager? = null
+    private var locationManager: LocationManager? = null
     @SuppressLint("MissingPermission")
     fun getLocation(): Location? {
         try {

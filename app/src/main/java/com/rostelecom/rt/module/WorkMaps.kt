@@ -1,6 +1,8 @@
 package com.rostelecom.rt.module
 
 import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -22,13 +24,17 @@ class WorkMaps(var googleMap: GoogleMap) {
 
     private fun startLogic() {
 
+        val context = App.appContext
+
         googleMap.uiSettings.apply {
             isZoomControlsEnabled = false
             isMapToolbarEnabled = false
             isCompassEnabled = false
         }
 
-
+        if (context.isDarkThemeOn()) {
+            googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(App.appContext, R.raw.map_style))
+        }
 
         val pos = LatLng(0.0, 0.0)
         googleMap.addMarker(MarkerOptions().position(pos))
@@ -36,6 +42,11 @@ class WorkMaps(var googleMap: GoogleMap) {
 
         addPolyline()
 
+    }
+
+    fun Context.isDarkThemeOn(): Boolean {
+        return resources.configuration.uiMode and
+                Configuration.UI_MODE_NIGHT_MASK == UI_MODE_NIGHT_YES
     }
 
     private fun moveCamera(latLng: LatLng) {
