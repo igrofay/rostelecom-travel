@@ -18,7 +18,7 @@ fun NavigationAppRT(navHost: NavHostController) {
     NavHost(navController = navHost, startDestination = NavigationRoute.Welcome.route){
         composable(NavigationRoute.Welcome.route){ WelcomeScreen(navHost)}
         composable(NavigationRoute.Main.route){ MainScreen(navHost) }
-        composable(NavigationRoute.CreateRouteMap.route){ CreateRouteMapScreen() }
+        composable(NavigationRoute.CreateRouteMap.route){ CreateRouteMapScreen(navHost) }
     }
 }
 
