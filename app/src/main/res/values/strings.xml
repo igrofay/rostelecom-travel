@@ -8,5 +8,5 @@
     <string name="profile">Профиль</string>
     <string name="chat">Чат</string>
     <string name="map">Карта</string>
-
+    <string name="where_going">Куда едем?</string>
 </resources>

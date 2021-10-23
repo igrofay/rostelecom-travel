@@ -15,4 +15,5 @@ sealed class NavigationRoute(val route:String){
             Map, Chat , Profile
         )
     }
+    object CreateRouteMap : NavigationRoute("create_route_screen")
 }

@@ -24,7 +24,7 @@ import com.rostelecom.rt.ui.theme.Orange
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun RowScope.BottomNavItem(selected: Boolean,
+fun BottomNavItem(selected: Boolean,
                   onClick: () -> Unit,
                   @DrawableRes iconRes:  Int,
                   @StringRes labelRes: Int

@@ -40,6 +40,6 @@ fun BottomNavigationMain(navHost: NavHostController, items: List<NavigationRoute
             )
         }
     }
-
 }
+
 

@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.rostelecom.rt.R
 import com.rostelecom.rt.ui.theme.Gray200
-import com.rostelecom.rt.ui.theme.Gray500
+import com.rostelecom.rt.ui.theme.Gray700
 import com.rostelecom.rt.ui.theme.Purple500
 import com.rostelecom.rt.ui.widgets.ButtonGo
 import com.rostelecom.rt.ui.widgets.EditText
@@ -38,7 +38,7 @@ fun SignInOrUp() {
                     style = MaterialTheme.typography.subtitle1,
                     modifier = Modifier.padding(8.dp),
                     fontWeight = FontWeight.Bold,
-                    color = if(isSign) Purple500 else Gray500
+                    color = if(isSign) Purple500 else Gray700
                 )
             }
             TextButton(
@@ -52,7 +52,7 @@ fun SignInOrUp() {
                     style = MaterialTheme.typography.subtitle1 ,
                     modifier = Modifier.padding(8.dp),
                     fontWeight = FontWeight.Bold,
-                    color = if(!isSign) Purple500 else Gray500
+                    color = if(!isSign) Purple500 else Gray700
                 )
             }
         }

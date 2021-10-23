@@ -1,4 +1,4 @@
-package com.rostelecom.rt.feature.screens
+package com.rostelecom.rt.feature.screens.main
 
 import androidx.compose.runtime.Composable
 
