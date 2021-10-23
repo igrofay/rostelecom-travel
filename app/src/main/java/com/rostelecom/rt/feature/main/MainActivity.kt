@@ -32,27 +32,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (grantResults.isNotEmpty() && grantResults[0] ==
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            if ((ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) ===
-                        PackageManager.PERMISSION_GRANTED)
-            ) {
-                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
-            }
-        } else {
-            Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
-        }
-    }
-
 }

@@ -61,6 +61,7 @@ class WorkMaps(var googleMap: GoogleMap) {
             .geodesic(false)
             .width(13f)
             .jointType(JointType.BEVEL)
+            .clickable(true)
 
         polylineOptions.add(LatLng(0.0, 0.0))
         polylineOptions.add(LatLng(1.0, 1.0))
