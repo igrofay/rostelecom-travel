@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.rostelecom.rt.ui.theme.BlackOrWhile
 import com.rostelecom.rt.ui.theme.WhileOrBlack
 import com.rostelecom.rt.ui.theme.Orange
 
@@ -30,7 +31,7 @@ fun BottomNavItem(selected: Boolean,
                   @StringRes labelRes: Int
 ) {
     val background = if (selected) MaterialTheme.colors.Orange.copy(0.2f) else Color.Transparent
-    val contentColor = if(selected) MaterialTheme.colors.Orange else MaterialTheme.colors.WhileOrBlack
+    val contentColor = if(selected) MaterialTheme.colors.Orange else MaterialTheme.colors.BlackOrWhile
     Box(
         Modifier
             .clip(CircleShape)

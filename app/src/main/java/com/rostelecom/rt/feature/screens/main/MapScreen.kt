@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
@@ -26,7 +28,9 @@ import androidx.lifecycle.LifecycleEventObserver
 import com.google.android.libraries.maps.MapView
 import com.google.maps.android.ktx.awaitMap
 import com.rostelecom.rt.module.WorkMaps
+import com.rostelecom.rt.ui.theme.Gray
 import com.rostelecom.rt.ui.theme.Gray200
+import com.rostelecom.rt.ui.theme.Gray500
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -48,7 +52,8 @@ fun MapScreen(onClickCreateRoute: ()-> Unit ) {
                 val workMaps = WorkMaps(googleMap)
             }
         }
-        Box(Modifier.padding(16.dp).clip(CircleShape).align(Alignment.BottomCenter).background(Gray200.copy(0.5f)).clickable(onClick = onClickCreateRoute)){
+        Box(Modifier.padding(16.dp).clip(CircleShape).align(Alignment.BottomCenter)
+            .background(MaterialTheme.colors.Gray.copy(0.5f)).clickable(onClick = onClickCreateRoute)){
             Row(
                 Modifier
                     .padding(12.dp)

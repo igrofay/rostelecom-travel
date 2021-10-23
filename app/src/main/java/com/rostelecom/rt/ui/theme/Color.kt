@@ -12,9 +12,15 @@ val Teal500 = Color(0xFF16D9A6)
 val Teal700 = Color(0xFF29CCA3)
 val Gray200 = Color(0xFFE8E8EE)
 val Gray500 = Color(0xFFB5B7C0)
-val Gray700 = Color(0xFF3D4555)
+val Gray700 = Color(0xFF272F3D)
 
 val Colors.Orange: Color
     get() = if (isLight) Orange700 else Orange500
 val Colors.WhileOrBlack: Color
     get() = if (isLight)  Color.White else Color.Black
+
+val Colors.BlackOrWhile: Color
+    get() = if (isLight) Color.Black  else Color.White
+
+val Colors.Gray: Color
+    get() = if (isLight) Gray500 else Gray700

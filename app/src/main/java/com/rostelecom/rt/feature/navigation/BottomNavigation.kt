@@ -16,11 +16,12 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.rostelecom.rt.ui.theme.WhileOrBlack
 import com.rostelecom.rt.ui.widgets.BottomNavItem
 
 @Composable
 fun BottomNavigationMain(navHost: NavHostController, items: List<NavigationRoute.Main.NavMainRoute>) {
-    Row(Modifier.background(MaterialTheme.colors.onBackground).padding(8.dp).fillMaxWidth(),
+    Row(Modifier.background(MaterialTheme.colors.WhileOrBlack).padding(8.dp).fillMaxWidth(),
     verticalAlignment = Alignment.CenterVertically , horizontalArrangement = Arrangement.SpaceAround) {
         val navBackStackEntry by navHost.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
