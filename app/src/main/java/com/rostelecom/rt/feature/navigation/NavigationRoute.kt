@@ -9,11 +9,17 @@ sealed class NavigationRoute(val route:String){
     object Main : NavigationRoute("main_screen"){
         open class NavMainRoute(route: String, @StringRes val resourceId: Int, @DrawableRes val iconRes: Int) : NavigationRoute(route)
         object Profile: NavMainRoute("profile_screen" , R.string.profile, R.drawable.ic_profile)
-        object Map: NavMainRoute("map_screen", R.string.map , R.drawable.ic_map)
+        object MapRoutes: NavMainRoute("map_routes_screen", R.string.routes , R.drawable.ic_map_routes){
+            object SettingRoute : NavigationRoute("setting_route_map_screen")
+            object ListRoutesMap : NavigationRoute("list_routes_map_screen")
+            object Map : NavigationRoute("map_screen")
+        }
+        object Places : NavMainRoute("places_screen", R.string.places , R.drawable.ic_place)
         object Chat: NavMainRoute("chat_screen", R.string.chat, R.drawable.ic_chat)
         val items = listOf(
-            Map, Chat , Profile
+            MapRoutes, Places ,Chat , Profile
         )
+
     }
-    object CreateRouteMap : NavigationRoute("create_route_screen")
+
 }

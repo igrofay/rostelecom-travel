@@ -8,7 +8,8 @@
     <string name="profile">Профиль</string>
     <string name="chat">Чат</string>
     <string name="map">Карта</string>
+    <string name="routes">Маршруты</string>
     <string name="where_going">Куда едем?</string>
     <string name="user">Пользователь</string>
-
+    <string name="places">Места</string>
 </resources>

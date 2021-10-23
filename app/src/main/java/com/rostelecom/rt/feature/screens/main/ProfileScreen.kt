@@ -36,7 +36,7 @@ fun ProfileScreen() {
                Modifier
                    .fillMaxWidth()
                    .height(200.dp)
-                   .background(sweep, alpha = 0.8f)
+                   .background(sweep, alpha = 0.7f)
                    .padding(16.dp),
            ) {
                Image(painter = painterResource(R.drawable.ic_person), contentDescription = "Profile",

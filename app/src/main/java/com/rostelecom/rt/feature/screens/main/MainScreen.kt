@@ -16,6 +16,6 @@ fun MainScreen(navHostControllerApp: NavHostController) {
             BottomNavigationMain(navControllerMain, NavigationRoute.Main.items)
         }
     ) { innerPadding ->
-        NavigationMain(navHostControllerApp, navControllerMain, innerPadding )
+        NavigationMain( navControllerMain, innerPadding )
     }
 }

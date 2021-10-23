@@ -1,4 +1,4 @@
-package com.rostelecom.rt.feature.screens
+package com.rostelecom.rt.feature.screens.maproutes
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -19,17 +19,6 @@ import com.rostelecom.rt.ui.theme.WhileOrBlack
 
 
 @Composable
-fun CreateRouteMapScreen(navHostControllerApp: NavHostController) {
-    Scaffold(
-        topBar = {
-            TopAppBar(navigationIcon = {
-                Spacer(Modifier.width(8.dp))
-                Icon(Icons.Default.ArrowBack, "", Modifier.clickable { navHostControllerApp.popBackStack() })
-            },
-                title = { Text("ddd") }
-            ,backgroundColor = MaterialTheme.colors.Orange,
-            contentColor = MaterialTheme.colors.WhileOrBlack)}
-    ) {
+fun ListRoutesMapScreen() {
 
-    }
 }

@@ -43,7 +43,7 @@ fun BottomNavItem(selected: Boolean,
             AnimatedVisibility(visible = selected) {
                 Text(
                     stringResource(labelRes),
-                    color = contentColor
+                    color = contentColor, style = MaterialTheme.typography.body2
                 )
             }
         }

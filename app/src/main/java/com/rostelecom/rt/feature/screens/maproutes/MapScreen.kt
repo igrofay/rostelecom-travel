@@ -13,8 +13,11 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -28,6 +31,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import com.google.android.libraries.maps.MapView
 import com.google.maps.android.ktx.awaitMap
 import com.rostelecom.rt.module.WorkMaps
+import com.rostelecom.rt.ui.theme.Black900
 import com.rostelecom.rt.ui.theme.Gray
 import com.rostelecom.rt.ui.theme.Gray200
 import com.rostelecom.rt.ui.theme.Gray500
@@ -37,7 +41,7 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun MapScreen(onClickCreateRoute: ()-> Unit ) {
+fun MapScreen() {
     val mapView = rememberMapViewWithLifeCycle()
 
 
@@ -52,17 +56,6 @@ fun MapScreen(onClickCreateRoute: ()-> Unit ) {
                 val workMaps = WorkMaps(googleMap)
             }
         }
-        Box(Modifier.padding(16.dp).clip(CircleShape).align(Alignment.BottomCenter)
-            .background(MaterialTheme.colors.Gray.copy(0.5f)).clickable(onClick = onClickCreateRoute)){
-            Row(
-                Modifier
-                    .padding(12.dp)
-                    , verticalAlignment = Alignment.CenterVertically , horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                Icon(painterResource(R.drawable.ic_route), contentDescription = null )
-                Text(stringResource(R.string.where_going))
-            }
-        }
-
     }
 
 }

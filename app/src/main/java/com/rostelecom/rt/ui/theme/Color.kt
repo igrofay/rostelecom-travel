@@ -3,6 +3,7 @@ package com.rostelecom.rt.ui.theme
 import androidx.compose.material.Colors
 import androidx.compose.ui.graphics.Color
 
+val Black900 = Color(0xFF1D2533)
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF9466FF)
 val Purple700 = Color(0xFF7700FF)
@@ -17,10 +18,10 @@ val Gray700 = Color(0xFF272F3D)
 val Colors.Orange: Color
     get() = if (isLight) Orange700 else Orange500
 val Colors.WhileOrBlack: Color
-    get() = if (isLight)  Color.White else Color.Black
+    get() = if (isLight)  Color.White else Black900
 
 val Colors.BlackOrWhile: Color
-    get() = if (isLight) Color.Black  else Color.White
+    get() = if (isLight) Black900 else Color.White
 
 val Colors.Gray: Color
     get() = if (isLight) Gray500 else Gray700
