@@ -73,9 +73,9 @@ fun ButtonGo(@DrawableRes iconResource: Int,@StringRes stringResourceButton: Int
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ButtonPlaces(labelText: String, urlImage: String){
+fun ButtonPlaces(labelText: String, urlImage: String, onClick: ()-> Unit){
     Surface(
-        onClick = { },
+        onClick = onClick,
         shape = RoundedCornerShape(15.dp),
         border = BorderStroke(1.dp , Gray200),
         color = MaterialTheme.colors.surface

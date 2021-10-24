@@ -28,22 +28,14 @@ class MainActivity : ComponentActivity() {
 
         val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
         ActivityCompat.requestPermissions(this, permissions,0)
-        WorkWithRetrofit.server.getListCity().enqueue(object : Callback<List<City>> {
-            override fun onResponse(call: Call<List<City>>, response: Response<List<City>>) {
-                Toast.makeText(this@MainActivity, response.body()!!.size.toString(), Toast.LENGTH_SHORT).show()
-            }
 
-            override fun onFailure(call: Call<List<City>>, t: Throwable) {
-                Toast.makeText(this@MainActivity,"Пусто", Toast.LENGTH_SHORT).show()
-            }
-        })
 
         setContent {
             RTTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     val navHost = rememberNavController()
-                    NavigationAppRT(navHost)
+                    NavigationAppRT(navHost , model)
                 }
             }
         }

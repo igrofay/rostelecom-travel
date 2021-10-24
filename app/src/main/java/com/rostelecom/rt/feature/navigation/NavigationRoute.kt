@@ -14,7 +14,10 @@ sealed class NavigationRoute(val route:String){
             object ListRoutesMap : NavigationRoute("list_routes_map_screen")
             object Map : NavigationRoute("map_screen")
         }
-        object Places : NavMainRoute("places_screen", R.string.places , R.drawable.ic_place)
+        object Places : NavMainRoute("places_screen", R.string.places , R.drawable.ic_place){
+            object Cities : NavigationRoute("cities_screen")
+            object CityPlaces : NavigationRoute("city_places/{id}")
+        }
         object Chat: NavMainRoute("chat_screen", R.string.chat, R.drawable.ic_chat)
         val items = listOf(
             MapRoutes, Places ,Chat , Profile
