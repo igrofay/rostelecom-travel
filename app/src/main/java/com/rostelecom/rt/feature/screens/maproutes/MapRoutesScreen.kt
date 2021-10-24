@@ -12,12 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.rostelecom.rt.feature.main.ViewModelMain
 import com.rostelecom.rt.feature.navigation.NavigationRoute
 import com.rostelecom.rt.feature.screens.main.MapScreen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MapRoutesScreen() {
+fun MapRoutesScreen(model: ViewModelMain) {
     val navMap = rememberNavController()
     var visible by remember {
         mutableStateOf(false)
@@ -44,7 +45,7 @@ fun MapRoutesScreen() {
                 ListRoutesMapScreen() }
             composable(NavigationRoute.Main.MapRoutes.CreateRoute.route){
                 visible = false
-                CreateRouteScreen()
+                CreateRouteScreen(navMap, model)
             }
             composable(NavigationRoute.Main.MapRoutes.Map.route){
                 MapScreen()

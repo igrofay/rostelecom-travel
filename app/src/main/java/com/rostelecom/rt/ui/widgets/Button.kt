@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.rostelecom.rt.R
+import com.rostelecom.rt.data.Place
 import com.rostelecom.rt.ui.theme.*
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -73,7 +74,7 @@ fun ButtonGo(@DrawableRes iconResource: Int,@StringRes stringResourceButton: Int
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ButtonPlaces(labelText: String, urlImage: String, onClick: ()-> Unit){
+fun ButtonCity(labelText: String, urlImage: String, onClick: ()-> Unit){
     Surface(
         onClick = onClick,
         shape = RoundedCornerShape(15.dp),
@@ -90,7 +91,11 @@ fun ButtonPlaces(labelText: String, urlImage: String, onClick: ()-> Unit){
                 modifier = Modifier
                     .fillMaxSize()
                     , contentScale = ContentScale.Crop)
-            Box(Modifier.fillMaxSize().alpha(0.7f).background(Color.Black))
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .alpha(0.7f)
+                    .background(Color.Black))
             Text(labelText, Modifier.align(Alignment.Center), textAlign = TextAlign.Center ,
                 style = MaterialTheme.typography.h4, fontWeight = FontWeight.W700,
                 fontFamily = FontFamily.SansSerif, color = Color.White,  overflow = TextOverflow.Ellipsis)
@@ -100,4 +105,41 @@ fun ButtonPlaces(labelText: String, urlImage: String, onClick: ()-> Unit){
 
 }
 
+@Composable
+fun ButtonPlace(place: Place, isClickable : Boolean ) {
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .height(260.dp),
+        shape= RoundedCornerShape(10.dp)
+        ) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            GlideImage(imageModel = place.imagePath, error = Icons.Default.Face,
+                modifier = Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomStart)
+                    .alpha(0.8f)
+                    .background(Color.Black)
+                    .padding(12.dp)) {
+                Text(place.name+"  —  "+place.type , fontWeight = FontWeight.W900 , color = MaterialTheme.colors.BlackOrWhile)
+                Spacer(Modifier.height(4.dp))
+                Text(place.address  , fontWeight = FontWeight.W400 , color = MaterialTheme.colors.BlackOrWhile)
+            }
+            var favorite by remember {
+                mutableStateOf(place.favorite)
+            }
+            Checkbox(checked = favorite , onCheckedChange = {
+                if (isClickable){
+                    favorite = it
+                    place.favorite = it
+                }
+            }, modifier = Modifier.padding(12.dp).background(Black900,  RoundedCornerShape(150.dp)).align(Alignment.TopEnd))
+        }
 
+    }
+}

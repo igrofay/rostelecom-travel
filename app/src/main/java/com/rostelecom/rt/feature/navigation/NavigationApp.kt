@@ -23,7 +23,7 @@ fun NavigationAppRT(navHost: NavHostController,  model: ViewModelMain) {
 @Composable
 fun NavigationMain( navHostMain: NavHostController, innerPadding : PaddingValues , model: ViewModelMain) {
     NavHost(navHostMain, startDestination = NavigationRoute.Main.MapRoutes.route, Modifier.padding(innerPadding)) {
-        composable(NavigationRoute.Main.MapRoutes.route) { MapRoutesScreen() }
+        composable(NavigationRoute.Main.MapRoutes.route) { MapRoutesScreen(model) }
         composable(NavigationRoute.Main.Chat.route) { ChatScreen() }
         composable(NavigationRoute.Main.Profile.route){ ProfileScreen() }
         composable(NavigationRoute.Main.Places.route){ PlacesScreen(model) }

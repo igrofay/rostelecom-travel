@@ -2,14 +2,15 @@ package com.rostelecom.rt.module
 
 import com.rostelecom.rt.data.City
 import com.rostelecom.rt.data.Place
+import com.rostelecom.rt.data.Travel
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ServerApi {
-    @GET("doc612755537_613879669?hash=fd52098999f9e0a6f2&dl=99d37e913d56151f7b")
+    @GET("/city")
     fun getListCity() : Call<List<City>>
-    @GET("city/{id}")
-    fun getCityPlaces(@Query("id") id :Int ): Call<List<Place>>
+    @GET("/city/{id}")
+    fun getCityPlaces(@Path("id") id : Int ): Call<List<Place>>
+    @POST("users/route")
+    fun createRouteTravel(@Body travel: Travel) : Call<List<List<Double> >>
 }
