@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.compose.rememberNavController
 import com.rostelecom.rt.data.City
 import com.rostelecom.rt.feature.navigation.NavigationAppRT
+import com.rostelecom.rt.feature.navigation.NavigationRoute
 import com.rostelecom.rt.module.WorkWithRetrofit
 import com.rostelecom.rt.ui.theme.RTTheme
 import retrofit2.Call
@@ -35,6 +36,12 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     val navHost = rememberNavController()
+                    model.isScreen.observe(this){
+                        if(it==-1) return@observe
+                        navHost.navigate(NavigationRoute.Main.route){
+                            popUpTo(NavigationRoute.Welcome.route){ inclusive = true }
+                        }
+                    }
                     NavigationAppRT(navHost , model)
                 }
             }

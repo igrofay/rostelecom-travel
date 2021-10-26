@@ -216,9 +216,12 @@ fun UsePlace(place: Place, useList : MutableList<Place>) {
             Modifier.shadow(5.dp ,RoundedCornerShape(50.dp)).size(60.dp).align(Alignment.Center)
                 .clickable {
                     if (isAdd) {
-                        useList.remove(place)
+                        Log.e("remove", "1")
+                        Log.e("remove", useList.remove(place).toString())
                     } else {
-                        useList.add(place)
+                        Log.e("add", "2")
+                        Log.e("add", useList.add(place).toString())
+
                     }
                     isAdd = !isAdd
                 }

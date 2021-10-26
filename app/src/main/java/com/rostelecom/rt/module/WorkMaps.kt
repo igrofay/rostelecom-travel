@@ -14,7 +14,7 @@ import com.google.android.libraries.maps.model.*
 import com.rostelecom.rt.R
 import com.rostelecom.rt.feature.app.App
 
-class WorkMaps(var googleMap: GoogleMap) {
+class WorkMaps(var googleMap: GoogleMap, var pointsList: List<List<Double>>) {
 
     var gpsTracker = GPSTracker(App.appContext)
 
@@ -38,7 +38,7 @@ class WorkMaps(var googleMap: GoogleMap) {
 
         val pos = LatLng(0.0, 0.0)
         googleMap.addMarker(MarkerOptions().position(pos))
-        moveCamera(LatLng(gpsTracker.getLatitude(), gpsTracker.getLongitude()))
+//        moveCamera(LatLng(gpsTracker.getLatitude(), gpsTracker.getLongitude()))
 
         addPolyline()
 
@@ -63,13 +63,13 @@ class WorkMaps(var googleMap: GoogleMap) {
             .jointType(JointType.BEVEL)
             .clickable(true)
 
-        polylineOptions.add(LatLng(0.0, 0.0))
-        polylineOptions.add(LatLng(1.0, 1.0))
-        polylineOptions.add(LatLng(10.0, 2.0))
+        pointsList.forEach {
+            polylineOptions.add(LatLng(it[0], it[1]))
+        }
 
         googleMap.addPolyline(polylineOptions)
 
-
+        moveCamera(LatLng(pointsList[0][0], pointsList[0][1]))
 
     }
 

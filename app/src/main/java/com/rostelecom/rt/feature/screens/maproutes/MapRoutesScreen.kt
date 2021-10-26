@@ -48,7 +48,7 @@ fun MapRoutesScreen(model: ViewModelMain) {
                 CreateRouteScreen(navMap, model)
             }
             composable(NavigationRoute.Main.MapRoutes.Map.route){
-                MapScreen()
+                MapScreen(model)
             }
         }
     }

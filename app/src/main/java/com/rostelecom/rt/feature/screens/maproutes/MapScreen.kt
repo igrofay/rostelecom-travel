@@ -28,8 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.ViewModel
 import com.google.android.libraries.maps.MapView
 import com.google.maps.android.ktx.awaitMap
+import com.rostelecom.rt.feature.main.ViewModelMain
 import com.rostelecom.rt.module.WorkMaps
 import com.rostelecom.rt.ui.theme.Black900
 import com.rostelecom.rt.ui.theme.Gray
@@ -41,7 +43,7 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun MapScreen() {
+fun MapScreen(model: ViewModelMain) {
     val mapView = rememberMapViewWithLifeCycle()
 
 
@@ -53,7 +55,7 @@ fun MapScreen() {
         AndroidView({ mapView }) { mapView ->
             CoroutineScope(Dispatchers.Main).launch {
                 val googleMap = mapView.awaitMap()
-                val workMaps = WorkMaps(googleMap)
+                val workMaps = WorkMaps(googleMap, model.mainRoute!!)
             }
         }
     }
