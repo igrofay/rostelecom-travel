@@ -55,7 +55,8 @@ fun MapScreen(model: ViewModelMain) {
         AndroidView({ mapView }) { mapView ->
             CoroutineScope(Dispatchers.Main).launch {
                 val googleMap = mapView.awaitMap()
-                val workMaps = WorkMaps(googleMap, model.mainRoute!!)
+                val workMaps = model.mainRoute?.let {
+                    WorkMaps(googleMap, it) }
             }
         }
     }
